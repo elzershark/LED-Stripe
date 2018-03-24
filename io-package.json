@@ -1,0 +1,86 @@
+{
+    "common": {
+        "name": "mclighting",
+        "version": "0.0.1",
+        "news": {
+            "0.0.1": {
+                "en": "initial adapter",
+                "de": "Initiale Version",
+                "ru": "Первоначальный адаптер",
+                "pt": "Versão inicial",
+                "fr": "Version initiale",
+                "nl": "Eerste release"
+            }
+        },
+		"title": "Javascript/Node.js based mclighting adapter",
+        "titleLang": {
+            "en": "Javascript/Node.js based mclighting adapter",
+            "de": "Javascript / Node.js basierte Vorlagenadapter",
+            "ru": "Адаптер шаблонов на основе Javascript / Node.js",
+            "pt": "Adaptador de modelo baseado em Javascript / Node.js",
+            "nl": "Javascript / Node.js gebaseerde sjabloonadapter",
+            "fr": "Javascript / Node.js basé adaptateur de modèle",
+            "it": "Adattatore modello basato su Javascript / Node.js",
+            "es": "Adaptador de plantilla basado en JavaScript / Node.js"
+        },
+        "desc": {
+            "en": "ioBroker mclighting Adapter",
+            "de": "ioBroker Mclighting Adapter",
+            "ru": "ioBroker Mclighting драйвер как образец",
+            "pt": "Modelo de adaptador para o ioBroker",
+            "fr": "ioBroker adaptateur modèle",
+            "nl": "ioBroker Mclighting Adapter",
+            "it": "Adattatore modello ioBroker",
+            "es": "Adaptador de plantilla ioBroker"
+        },
+        "authors": [
+            "instalator <vvvalt@mail.ru>"
+        ],
+        "docs": {
+            "en": "docs/en/admin.md",
+            "ru": "docs/ru/admin.md",
+            "de": "docs/de/admin.md",
+            "es": "docs/es/admin.md",
+            "it": "docs/it/admin.md",
+            "fr": "docs/fr/admin.md",
+            "nl": "docs/nl/admin.md",
+            "pt": "docs/pt/admin.md"
+        },
+        "platform": "Javascript/Node.js",
+        "mode": "daemon",
+        "icon": "mclighting.png",
+        "materialize": true,
+        "enabled": true,
+        "extIcon": "https://raw.githubusercontent.com/instalator/ioBroker.mclighting/master/admin/mclighting.png",
+        "keywords": ["mclighting", "vis", "GUI", "graphical", "scada"],
+        "readme": "https://github.com/instalator/ioBroker.mclighting/blob/master/README.md",
+        "loglevel": "info",
+        "type": "lighting"
+    },
+    "native": {
+        "host" : "192.168.1.64",
+        "port" : 81,
+        "test1": true,
+        "test2": 42,
+        "mySelect": "auto"
+    },
+    "objects": [
+
+    ],
+    "instanceObjects": [
+        {
+            "_id": "info.connection",
+            "type": "state",
+            "common": {
+                "role": "indicator.connected",
+                "name": "If connected to McLighting",
+                "type": "boolean",
+                "read": true,
+                "write": false,
+                "def": false
+            },
+            "native": {
+            }
+        }
+    ]
+}
