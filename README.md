@@ -35,7 +35,8 @@ Where <lightmode> is one of the following:
 - tv (Starts TV simulator.)
 ### array_RGB
 Light multiple LEDs in the given colors.
-+[numled][hexrgb]+[numled][hexrgb]+[numled][hexrgb] [...] or [numled][hexrgb],[numled][hexrgb],[numled][hexrgb],[...]
+```+[numled][hexrgb]+[numled][hexrgb]+[numled][hexrgb] [...] or 
+ [numled][hexrgb],[numled][hexrgb],[numled][hexrgb],[...]```
 Where <numled> is the number of the led (starting with 00), e.g. 01.
 Where <hexrgb> is the color as HEX, e.g. 04d2ff.
 Example: +09ffffff+19ff0000 OR 09ffffff,19ff0000
@@ -73,8 +74,8 @@ Result:
 ```
 ### rang_RGB
 Light multiple LED ranges in the given colors.
-R[rangstart_led][rangend_led][hexrgb]R[rangstart_led][rangend_led][hexrgb]R[rangstart_led][rangend_led][hexrgb] [...] or
-[rangstart_led][rangend_led][hexrgb],[rangstart_led][rangend_led][hexrgb],[rangstart_led][rangend_led][hexrgb],[...]
+```R[rangstart_led][rangend_led][hexrgb]R[rangstart_led][rangend_led][hexrgb]R[rangstart_led][rangend_led][hexrgb] [...] or
+[rangstart_led][rangend_led][hexrgb],[rangstart_led][rangend_led][hexrgb],[rangstart_led][rangend_led][hexrgb],[...]```
 Where <rangstart_led> is the start number of the range (numbers starting with 00), e.g. 00.
 Where <rangend_led> is the end number of the range (numbers starting with 00), e.g. 09.
 Where <hexrgb> is the color as HEX, e.g. 04d2ff.
