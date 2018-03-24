@@ -20,11 +20,11 @@ The driver allows you to control the RGB strip on the LEDs WS2811/WS2812 connect
 Set brightness.
 Where <brightness> is the brightness as value 0-255.
 ### speed
-Set speed.
-Where <speed> is the speed from 0 to 255.
+ Set speed.
+ Where <speed> is the speed from 0 to 255.
 ### mode
-Set mode.
-Where <lightmode> is one of the following:
+ Set mode.
+ Where <lightmode> is one of the following:
 - off (Turn all LEDs off.)
 - all (Turn all LEDs on in the given or previously set color.)
 - wipe (Turn all LEDs on in the given or previously set color, with wipe effect.)
@@ -34,30 +34,30 @@ Where <lightmode> is one of the following:
 - theaterchaseRainbow (Starts theaterchase effect with changing colors.)
 - tv (Starts TV simulator.)
 ### array_RGB
-Light multiple LEDs in the given colors.
-```
+ Light multiple LEDs in the given colors.
+ ```
  +[numled][hexrgb]+[numled][hexrgb]+[numled][hexrgb] [...] or 
  [numled][hexrgb],[numled][hexrgb],[numled][hexrgb],[...] 
  ```
-Where <numled> is the number of the led (starting with 00), e.g. 01.
-Where <hexrgb> is the color as HEX, e.g. 04d2ff.
-Example: +09ffffff+19ff0000 OR 09ffffff,19ff0000
+ Where <numled> is the number of the led (starting with 00), e.g. 01.
+ Where <hexrgb> is the color as HEX, e.g. 04d2ff.
+ Example: +09ffffff+19ff0000 OR 09ffffff,19ff0000
 ### color
-Set default color of the lamp.
-Where <r,g,b> is the color as number (0 - 255), e.g. 32,3,200
-If active mode 0 (Static) - Set default color of the lamp and light all LEDs in that color.
+ Set default color of the lamp.
+ Where <r,g,b> is the color as number (0 - 255), e.g. 32,3,200
+ If active mode 0 (Static) - Set default color of the lamp and light all LEDs in that color.
 ### color_R, color_G, color_B
-Set default color of the lamp.
-Where <r(g)(b)> is the color as number (0 - 255), e.g. 154
-If active mode 0 (Static) - Set default color of the lamp and light all LEDs in that color.
+ Set default color of the lamp.
+ Where <r(g)(b)> is the color as number (0 - 255), e.g. 154
+ If active mode 0 (Static) - Set default color of the lamp and light all LEDs in that color.
 ### color_RGB
-Set default color of the lamp.
-Where <hexrgb> is the color as HEX, e.g. 04d2ff
-If active mode 0 (Static) - Set default color of the lamp and light all LEDs in that color.
+ Set default color of the lamp.
+ Where <hexrgb> is the color as HEX, e.g. 04d2ff
+ If active mode 0 (Static) - Set default color of the lamp and light all LEDs in that color.
 ### list_modes
-List of avilable animation modes as array.
-Result:
-```
+ List of avilable animation modes as array.
+ Result:
+ ```
 [
   {
     "mode": 0,
@@ -73,30 +73,30 @@ Result:
   },
   ...
 ]
-```
-### rang_RGB
-Light multiple LED ranges in the given colors.
-```
- R[rangstart_led][rangend_led][hexrgb]R[rangstart_led][rangend_led][hexrgb]R[rangstart_led][rangend_led][hexrgb] [...] or
-[rangstart_led][rangend_led][hexrgb],[rangstart_led][rangend_led][hexrgb],[rangstart_led][rangend_led][hexrgb],[...] 
  ```
-Where <rangstart_led> is the start number of the range (numbers starting with 00), e.g. 00.
-Where <rangend_led> is the end number of the range (numbers starting with 00), e.g. 09.
-Where <hexrgb> is the color as HEX, e.g. 04d2ff.
-Can be repeated multiple times.
-Example: R0009ffffffR1019ff0000 OR 0009ffffff,1019ff0000 lights the first 10 LEDs white and the next 10 red
+### rang_RGB
+ Light multiple LED ranges in the given colors.
+ ```
+ R[rangstart_led][rangend_led][hexrgb]R[rangstart_led][rangend_led][hexrgb]R[rangstart_led][rangend_led][hexrgb] [...] or
+ [rangstart_led][rangend_led][hexrgb],[rangstart_led][rangend_led][hexrgb],[rangstart_led][rangend_led][hexrgb],[...] 
+ ```
+ Where <rangstart_led> is the start number of the range (numbers starting with 00), e.g. 00.
+ Where <rangend_led> is the end number of the range (numbers starting with 00), e.g. 09.
+ Where <hexrgb> is the color as HEX, e.g. 04d2ff.
+ Can be repeated multiple times.
+ Example: R0009ffffffR1019ff0000 OR 0009ffffff,1019ff0000 lights the first 10 LEDs white and the next 10 red
 ### set_all_RGB
-Set default color of the lamp and light all LEDs in that color.
-Where <hexrgb> is the color as HEX, e.g. 04d2ff
+ Set default color of the lamp and light all LEDs in that color.
+ Where <hexrgb> is the color as HEX, e.g. 04d2ff
 ### single_RGB
-Light single LEDs in the given color.
-Where <numled> is the number of the led (starting with 00), e.g. 01.
-Where <hexrgb> is the color as HEX, e.g. 04d2ff.
+ Light single LEDs in the given color.
+ Where <numled> is the number of the led (starting with 00), e.g. 01.
+ Where <hexrgb> is the color as HEX, e.g. 04d2ff.
 ### fx_mode
-Set animation mode.
-Where <animation_mode_id> is on from the list_modes
+ Set animation mode.
+ Where <animation_mode_id> is on from the list_modes
 ### fx_mode_name
-Current name fx_mode
+ Current name fx_mode
   
 ## Changelog
 
