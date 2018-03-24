@@ -1,8 +1,16 @@
 {
     "common": {
         "name": "mclighting",
-        "version": "0.0.1",
+        "version": "0.0.2",
         "news": {
+            "0.0.2": {
+                "en": "release version",
+                "de": "release version",
+                "ru": "release version",
+                "pt": "release version",
+                "fr": "release version",
+                "nl": "release version"
+            },
             "0.0.1": {
                 "en": "initial adapter",
                 "de": "Initiale Version",
@@ -12,26 +20,26 @@
                 "nl": "Eerste release"
             }
         },
-		"title": "Javascript/Node.js based mclighting adapter",
+		"title": "McLighting adapter",
         "titleLang": {
-            "en": "Javascript/Node.js based mclighting adapter",
-            "de": "Javascript / Node.js basierte Vorlagenadapter",
-            "ru": "Адаптер шаблонов на основе Javascript / Node.js",
-            "pt": "Adaptador de modelo baseado em Javascript / Node.js",
-            "nl": "Javascript / Node.js gebaseerde sjabloonadapter",
-            "fr": "Javascript / Node.js basé adaptateur de modèle",
-            "it": "Adattatore modello basato su Javascript / Node.js",
-            "es": "Adaptador de plantilla basado en JavaScript / Node.js"
+            "en": "McLighting adapter",
+            "de": "McLighting Vorlagenadapter",
+            "ru": "McLighting адаптер",
+            "pt": "Adaptador de McLighting",
+            "nl": "McLighting-adapter",
+            "fr": "McLighting adapter",
+            "it": "McLighting adapter",
+            "es": "McLighting adapter"
         },
         "desc": {
-            "en": "ioBroker mclighting Adapter",
-            "de": "ioBroker Mclighting Adapter",
-            "ru": "ioBroker Mclighting драйвер как образец",
-            "pt": "Modelo de adaptador para o ioBroker",
-            "fr": "ioBroker adaptateur modèle",
-            "nl": "ioBroker Mclighting Adapter",
-            "it": "Adattatore modello ioBroker",
-            "es": "Adaptador de plantilla ioBroker"
+            "en": "Control the ESP8266 based multi-client lighting gadget",
+            "de": "Steuern Sie das ESP8266-basierte Multi-Client-Beleuchtungs-Gadget",
+            "ru": "Control the ESP8266 based multi-client lighting gadget",
+            "pt": "Controlar o gadget de iluminação para múltiplos clientes baseado no ESP8266",
+            "fr": "Contrôlez le gadget d'éclairage multi-client ESP8266",
+            "nl": "Bedien de op ESP8266 gebaseerde multi-client verlichtingsgadget",
+            "it": "Controlla il gadget di illuminazione multi-cliente basato su ESP8266",
+            "es": "Controle el dispositivo de iluminación multi-cliente basado en ESP8266"
         },
         "authors": [
             "instalator <vvvalt@mail.ru>"
@@ -50,22 +58,18 @@
         "mode": "daemon",
         "icon": "mclighting.png",
         "materialize": true,
-        "enabled": true,
+        "enabled": false,
         "extIcon": "https://raw.githubusercontent.com/instalator/ioBroker.mclighting/master/admin/mclighting.png",
-        "keywords": ["mclighting", "vis", "GUI", "graphical", "scada"],
+        "keywords": ["mclighting", "rgb", "light", "ws2812", "esp8266"],
         "readme": "https://github.com/instalator/ioBroker.mclighting/blob/master/README.md",
         "loglevel": "info",
         "type": "lighting"
     },
     "native": {
-        "host" : "192.168.1.64",
-        "port" : 81,
-        "test1": true,
-        "test2": 42,
-        "mySelect": "auto"
+        "host" : "127.0.0.1",
+        "port" : 81
     },
     "objects": [
-
     ],
     "instanceObjects": [
         {
@@ -75,6 +79,220 @@
                 "role": "indicator.connected",
                 "name": "If connected to McLighting",
                 "type": "boolean",
+                "read": true,
+                "write": false,
+                "def": false
+            },
+            "native": {
+            }
+        },
+        {
+            "_id": "mode",
+            "type": "state",
+            "common": {
+                "role": "state",
+                "name": "Set mode",
+                "type": "string",
+                "read": true,
+                "write": true,
+                "def": false
+            },
+            "native": {
+            }
+        },
+        {
+            "_id": "ws2812fx_mode",
+            "type": "state",
+            "common": {
+                "role": "state",
+                "name": "Set ws2812fx_mode",
+                "type": "number",
+                "read": true,
+                "write": true,
+                "def": false
+            },
+            "native": {
+            }
+        },
+        {
+            "_id": "ws2812fx_mode_name",
+            "type": "state",
+            "common": {
+                "role": "state",
+                "name": "ws2812fx_mode_name",
+                "type": "string",
+                "read": true,
+                "write": true,
+                "def": false
+            },
+            "native": {
+            }
+        },
+        {
+            "_id": "speed",
+            "type": "state",
+            "common": {
+                "role": "state",
+                "name": "speed",
+                "type": "number",
+                "min": 0,
+                "max":255,
+                "read": true,
+                "write": true,
+                "def": false
+            },
+            "native": {
+            }
+        },
+        {
+            "_id": "brightness",
+            "type": "state",
+            "common": {
+                "role": "state",
+                "name": "brightness",
+                "type": "number",
+                "min": 0,
+                "max":255,
+                "read": true,
+                "write": true,
+                "def": false
+            },
+            "native": {
+            }
+        },
+        {
+            "_id": "color",
+            "type": "state",
+            "common": {
+                "role": "state",
+                "name": "color",
+                "type": "string",
+                "read": true,
+                "write": true,
+                "def": false
+            },
+            "native": {
+            }
+        },
+        {
+            "_id": "color_RGB",
+            "type": "state",
+            "common": {
+                "role": "state",
+                "name": "color_RGB",
+                "type": "string",
+                "read": true,
+                "write": true,
+                "def": false
+            },
+            "native": {
+            }
+        },
+        {
+            "_id": "set_all_RGB",
+            "type": "state",
+            "common": {
+                "role": "state",
+                "name": "set_all_RGB",
+                "type": "string",
+                "read": true,
+                "write": true,
+                "def": false
+            },
+            "native": {
+            }
+        },
+        {
+            "_id": "single_RGB",
+            "type": "state",
+            "common": {
+                "role": "state",
+                "name": "single_RGB",
+                "type": "string",
+                "read": true,
+                "write": true,
+                "def": false
+            },
+            "native": {
+            }
+        },
+        {
+            "_id": "array_RGB",
+            "type": "state",
+            "common": {
+                "role": "state",
+                "name": "array_RGB",
+                "type": "string",
+                "read": true,
+                "write": true,
+                "def": false
+            },
+            "native": {
+            }
+        },
+        {
+            "_id": "rang_RGB",
+            "type": "state",
+            "common": {
+                "role": "state",
+                "name": "rang_RGB",
+                "type": "string",
+                "read": true,
+                "write": true,
+                "def": false
+            },
+            "native": {
+            }
+        },
+        {
+            "_id": "color_R",
+            "type": "state",
+            "common": {
+                "role": "state",
+                "name": "color_R",
+                "type": "number",
+                "read": true,
+                "write": true,
+                "def": false
+            },
+            "native": {
+            }
+        },
+        {
+            "_id": "color_G",
+            "type": "state",
+            "common": {
+                "role": "state",
+                "name": "color_G",
+                "type": "number",
+                "read": true,
+                "write": true,
+                "def": false
+            },
+            "native": {
+            }
+        },
+        {
+            "_id": "color_B",
+            "type": "state",
+            "common": {
+                "role": "state",
+                "name": "color_B",
+                "type": "number",
+                "read": true,
+                "write": true,
+                "def": false
+            },
+            "native": {
+            }
+        },
+        {
+            "_id": "list_modes",
+            "type": "state",
+            "common": {
+                "role": "state",
+                "name": "list supported modes",
+                "type": "array",
                 "read": true,
                 "write": false,
                 "def": false

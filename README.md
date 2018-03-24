@@ -8,13 +8,13 @@
 
 [![NPM](https://nodei.co/npm/iobroker.mclighting.png?downloads=true)](https://nodei.co/npm/iobroker.mclighting/)
 
-## Description
-The driver
-
 ## Описание
-Драйвер позволяет
+Драйвер позволяет управлять RGB лентой на светодиодах WS2811/WS2812 подключенной к ESP8266 с прошивкой [McLighting](https://github.com/toblum/McLighting)
 
 ## Changelog
+
+### 0.0.2 (2018-03-24)
+* (instalator) Release version
 
 ### 0.0.1 (2018-03-24)
 * (instalator) initial
