@@ -1,8 +1,16 @@
 {
     "common": {
         "name": "mclighting",
-        "version": "0.0.2",
+        "version": "0.0.3",
         "news": {
+            "0.0.3": {
+                "en": "fix error, change README",
+                "de": "fix error, change README",
+                "ru": "fix error, change README",
+                "pt": "fix error, change README",
+                "fr": "fix error, change README",
+                "nl": "fix error, change README"
+            },
             "0.0.2": {
                 "en": "release version",
                 "de": "release version",
@@ -101,11 +109,11 @@
             }
         },
         {
-            "_id": "ws2812fx_mode",
+            "_id": "fx_mode",
             "type": "state",
             "common": {
                 "role": "state",
-                "name": "Set ws2812fx_mode",
+                "name": "Set animation mode",
                 "type": "number",
                 "read": true,
                 "write": true,
@@ -115,14 +123,14 @@
             }
         },
         {
-            "_id": "ws2812fx_mode_name",
+            "_id": "fx_mode_name",
             "type": "state",
             "common": {
                 "role": "state",
-                "name": "ws2812fx_mode_name",
+                "name": "Current name animation mode",
                 "type": "string",
                 "read": true,
-                "write": true,
+                "write": false,
                 "def": false
             },
             "native": {
@@ -133,7 +141,7 @@
             "type": "state",
             "common": {
                 "role": "state",
-                "name": "speed",
+                "name": "Set speed",
                 "type": "number",
                 "min": 0,
                 "max":255,
@@ -149,7 +157,7 @@
             "type": "state",
             "common": {
                 "role": "state",
-                "name": "brightness",
+                "name": "Set brightness",
                 "type": "number",
                 "min": 0,
                 "max":255,
@@ -165,7 +173,7 @@
             "type": "state",
             "common": {
                 "role": "state",
-                "name": "color",
+                "name": "Set default color of the lamp",
                 "type": "string",
                 "read": true,
                 "write": true,
@@ -179,7 +187,7 @@
             "type": "state",
             "common": {
                 "role": "state",
-                "name": "color_RGB",
+                "name": "Set default color of the lamp",
                 "type": "string",
                 "read": true,
                 "write": true,
@@ -193,7 +201,7 @@
             "type": "state",
             "common": {
                 "role": "state",
-                "name": "set_all_RGB",
+                "name": "Set default color of the lamp and light all LEDs in that color",
                 "type": "string",
                 "read": true,
                 "write": true,
@@ -207,7 +215,7 @@
             "type": "state",
             "common": {
                 "role": "state",
-                "name": "single_RGB",
+                "name": "Light single LEDs in the given color",
                 "type": "string",
                 "read": true,
                 "write": true,
@@ -221,7 +229,7 @@
             "type": "state",
             "common": {
                 "role": "state",
-                "name": "array_RGB",
+                "name": "Light multiple LEDs in the given colors",
                 "type": "string",
                 "read": true,
                 "write": true,
@@ -235,7 +243,7 @@
             "type": "state",
             "common": {
                 "role": "state",
-                "name": "rang_RGB",
+                "name": "Light multiple LED ranges in the given colors",
                 "type": "string",
                 "read": true,
                 "write": true,
@@ -249,8 +257,10 @@
             "type": "state",
             "common": {
                 "role": "state",
-                "name": "color_R",
+                "name": "Set default Red color of the lamp",
                 "type": "number",
+                "min": 0,
+                "max":255,
                 "read": true,
                 "write": true,
                 "def": false
@@ -263,8 +273,10 @@
             "type": "state",
             "common": {
                 "role": "state",
-                "name": "color_G",
+                "name": "Set default Green color of the lamp",
                 "type": "number",
+                "min": 0,
+                "max":255,
                 "read": true,
                 "write": true,
                 "def": false
@@ -277,8 +289,10 @@
             "type": "state",
             "common": {
                 "role": "state",
-                "name": "color_B",
+                "name": "Set default Blue color of the lamp",
                 "type": "number",
+                "min": 0,
+                "max":255,
                 "read": true,
                 "write": true,
                 "def": false
@@ -291,7 +305,7 @@
             "type": "state",
             "common": {
                 "role": "state",
-                "name": "list supported modes",
+                "name": "List of avilable animation modes as array",
                 "type": "array",
                 "read": true,
                 "write": false,

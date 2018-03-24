@@ -1,8 +1,8 @@
 'use strict';
-var utils =    require(__dirname + '/lib/utils'); // Get common adapter utils
+var utils =    require(__dirname + '/lib/utils');
 var adapter = new utils.Adapter('mclighting');
 const WebSocket = require('ws');
-var ws;
+var ws, state_current = {}, flag = false;
 
 adapter.on('unload', function (callback) {
     try {
@@ -28,27 +28,83 @@ adapter.on('stateChange', function (id, state) {
         if (command == 'mode'){
             send('=' + val);
         }
-        if (command == 'ws2812fx_mode'){
+        if (command == 'fx_mode'){
             send('/' + val);
         }
         if (command == 'color'){
             var c = val.split(",");
-            send('#' + rgbToHex(parseInt(c[0]), parseInt(c[1]), parseInt(c[2])));
+            if(state_current.ws2812fx_mode !== 0){
+                send('#' + rgbToHex(parseInt(c[0]), parseInt(c[1]), parseInt(c[2])));
+            } else {
+                send('*' + rgbToHex(parseInt(c[0]), parseInt(c[1]), parseInt(c[2])));
+            }
+        }
+        if (command == 'color_R' || command == 'color_G' || command == 'color_B'){
+            if(!flag){
+                flag = true;
+                setTimeout(function (){
+                    var r, g, b;
+                    adapter.getState('color_R', function (err, state){
+                        if (!err){
+                            r = state.val;
+                            adapter.getState('color_G', function (err, state){
+                                if (!err){
+                                    g = state.val;
+                                    adapter.getState('color_B', function (err, state){
+                                        if (!err){
+                                            b = state.val;
+                                            if (state_current.ws2812fx_mode !== 0){
+                                                send('#' + rgbToHex(r, g, b));
+                                            } else {
+                                                send('*' + rgbToHex(r, g, b));
+                                            }
+                                        }
+                                    });
+                                }
+                            });
+                        }
+                    });
+                    flag = false;
+                }, 1000);
+            }
         }
         if (command == 'color_RGB'){
+            val = val.replace('#', '');
             send('#' + val);
         }
         if (command == 'set_all_RGB'){
-            send('*#' + val);
+            val = val.replace('#', '');
+            send('*' + val);
         }
         if (command == 'single_RGB'){
+            val = val.replace('#', '');
             send('!' + val);
         }
         if (command == 'array_RGB'){
-            send('+' + val);
+            if(~val.indexOf('+')){
+                if(val[0] === '+'){
+                    send(val);
+                } else {
+                    send('+' + val);
+                }
+            } else {
+                val = val.replace(/\s/g, '').replace(',', '+').replace('[', '').replace(']', '');
+                adapter.log.debug('Send array_RGB: ' + val);
+                send('+' + val);
+            }
         }
         if (command == 'rang_RGB'){
-            send('R' + val);
+            if(~val.indexOf('R')){
+                if(val[0] === 'R'){
+                    send(val);
+                } else {
+                    send('R' + val);
+                }
+            } else {
+                val = val.replace(/\s/g, '').replace(',', 'R').replace('[', '').replace(']', '');
+                adapter.log.debug('Send rang_RGB: ' + val);
+                send('R' + val);
+            }
         }
         if (command == 'speed'){
             if(val > 255) val = 255;
@@ -60,10 +116,10 @@ adapter.on('stateChange', function (id, state) {
             if(val < 0) val = 0;
             send('%' + val);
         }
-
-        send('$');
+        if(!flag){
+           send('$');
+        }
     }
-
 });
 
 adapter.on('message', function (obj) {
@@ -91,7 +147,7 @@ var connect = function (){
         send('$');
         setTimeout(function (){
             send('~');
-        }, 10000);
+        }, 5000);
     });
 
     ws.on('message', function incoming(data) {
@@ -121,9 +177,11 @@ function send(data){
     ws.send(data, function ack(error) {
         if(error){
             adapter.log.debug('Send error - ' + error);
-            if (~error.indexOf('CLOSED')){
-                adapter.setState('info.connection', false, true);
-                connect();
+            if(error){
+                if (~error.indexOf('CLOSED')){
+                    adapter.setState('info.connection', false, true);
+                    connect();
+                }
             }
         } else {
             adapter.log.debug('Send command:{' + data + '} - OK');
@@ -136,14 +194,21 @@ function parse(data){
     try {
         obj = JSON.parse(data);
             if(obj.mode && obj.brightness){
+                state_current = obj;
                 for (var key in obj) {
                     if(obj.hasOwnProperty(key)){
                         if(key === 'color'){
                             setStates('color_RGB', rgbToHex(obj[key][0], obj[key][1], obj[key][2]));
+                            setStates('color_R', obj[key][0]);
+                            setStates('color_G', obj[key][1]);
+                            setStates('color_B', obj[key][2]);
                         }
                         setStates(key, obj[key]);
                     }
                 }
+            }
+            if(typeof obj[0] === 'object'){
+                setStates('list_modes', obj);
             }
     } catch (err) {
         adapter.log.debug('Error parse - ' + err);

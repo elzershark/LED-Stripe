@@ -1,16 +1,13 @@
 {
   "name": "iobroker.mclighting",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "ioBroker McLighting Adapter",
   "author": {
     "name": "instalator",
     "email": "vvvalt@mail.ru"
   },
   "contributors": [
-    {
-      "name": "instalator",
-      "email": "vvvalt@mail.ru"
-    }
+
   ],
   "homepage": "https://github.com/instalator/ioBroker.mclighting",
   "license": "MIT",
