@@ -80,10 +80,13 @@ Where <brightness> is the brightness as value 0-255.
  R[rangstart_led][rangend_led][hexrgb]R[rangstart_led][rangend_led][hexrgb]R[rangstart_led][rangend_led][hexrgb] [...] or
  [rangstart_led][rangend_led][hexrgb],[rangstart_led][rangend_led][hexrgb],[rangstart_led][rangend_led][hexrgb],[...] 
  ```
- Where <rangstart_led> is the start number of the range (numbers starting with 00), e.g. 00.
+ Where <rangstart_led> is the start number of the range (numbers starting with 00), e.g. 00. 
+ 
  Where <rangend_led> is the end number of the range (numbers starting with 00), e.g. 09.
+ 
  Where <hexrgb> is the color as HEX, e.g. 04d2ff.
- Can be repeated multiple times.
+ 
+ Can be repeated multiple times. 
  Example: R0009ffffffR1019ff0000 OR 0009ffffff,1019ff0000 lights the first 10 LEDs white and the next 10 red
 ### set_all_RGB
  Set default color of the lamp and light all LEDs in that color.
