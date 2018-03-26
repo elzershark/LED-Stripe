@@ -2,7 +2,7 @@
 var utils =    require(__dirname + '/lib/utils');
 var adapter = new utils.Adapter('mclighting');
 const WebSocket = require('ws');
-var ws, state_current = {}, flag = false;
+var ws, state_current = {},list_modes = null, flag = false;
 
 adapter.on('unload', function (callback) {
     try {
@@ -203,10 +203,18 @@ function parse(data){
                         }
                         setStates(key, obj[key]);
                     }
+                    if(key === 'ws2812fx_mode'){
+                        setStates('fx_mode', obj[key]);
+                    }
+                    if(key === 'ws2812fx_mode_name'){
+                        setStates('fx_mode_name', obj[key]);
+                    }
+
                 }
             }
             if(typeof obj[0] === 'object'){
                 setStates('list_modes', obj);
+                list_modes = obj;
             }
     } catch (err) {
         adapter.log.debug('Error parse - ' + err);
