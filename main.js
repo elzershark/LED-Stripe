@@ -175,17 +175,15 @@ function main() {
 
 function send(data){
     ws.send(data, function ack(error) {
-        if(error){
-            adapter.log.debug('Send error - ' + error);
             if(error){
-                if (~error.indexOf('CLOSED')){
+                adapter.log.error('Send command: {' + data + '}, ERROR - ' + error);
+                if (~error.toString().indexOf('CLOSED')){
                     adapter.setState('info.connection', false, true);
                     connect();
                 }
+            } else {
+                adapter.log.debug('Send command:{' + data + '} - OK');
             }
-        } else {
-            adapter.log.debug('Send command:{' + data + '} - OK');
-        }
     });  
 }
 
