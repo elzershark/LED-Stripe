@@ -1,8 +1,16 @@
 {
     "common": {
         "name": "mclighting",
-        "version": "0.0.3",
+        "version": "0.0.4",
         "news": {
+            "0.0.4": {
+                "en": "fix error",
+                "de": "fix error",
+                "ru": "fix error",
+                "pt": "fix error",
+                "fr": "fix error",
+                "nl": "fix error"
+            },
             "0.0.3": {
                 "en": "fix error, change README",
                 "de": "fix error, change README",

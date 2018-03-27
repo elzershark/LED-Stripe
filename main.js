@@ -58,6 +58,7 @@ adapter.on('stateChange', function (id, state) {
                                             } else {
                                                 send('*' + rgbToHex(r, g, b));
                                             }
+                                            send('$');
                                         }
                                     });
                                 }
@@ -70,7 +71,11 @@ adapter.on('stateChange', function (id, state) {
         }
         if (command == 'color_RGB'){
             val = val.replace('#', '');
-            send('#' + val);
+            if(state_current.ws2812fx_mode !== 0){
+                send('#' + val);
+            } else {
+                send('*' + val);
+            }
         }
         if (command == 'set_all_RGB'){
             val = val.replace('#', '');

@@ -120,6 +120,9 @@ Where <brightness> is the brightness as value 0-255.
   
 ## Changelog
 
+### 0.0.4 (2018-03-27)
+* (instalator) fix error
+
 ### 0.0.3 (2018-03-24)
 * (instalator) fix error, change README
 
