@@ -1,8 +1,16 @@
 {
     "common": {
         "name": "mclighting",
-        "version": "0.0.4",
+        "version": "0.0.10",
         "news": {
+            "0.0.10": {
+                "en": "fix error, added ping pong function for reconnect",
+                "de": "fix error, added ping pong function for reconnect",
+                "ru": "fix error, added ping pong function for reconnect",
+                "pt": "fix error, added ping pong function for reconnect",
+                "fr": "fix error, added ping pong function for reconnect",
+                "nl": "fix error, added ping pong function for reconnect"
+            },
             "0.0.4": {
                 "en": "fix error",
                 "de": "fix error",

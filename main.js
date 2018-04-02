@@ -2,7 +2,8 @@
 var utils =    require(__dirname + '/lib/utils');
 var adapter = new utils.Adapter('mclighting');
 const WebSocket = require('ws');
-var ws, state_current = {},list_modes = null, flag = false;
+var ws, state_current = {},list_modes = null, flag = false, isAlive = false;
+var pingTimer, timeoutTimer;
 
 adapter.on('unload', function (callback) {
     try {
@@ -146,17 +147,33 @@ var connect = function (){
     var host = adapter.config.host ? adapter.config.host : '127.0.0.1';
     var port = adapter.config.port ? adapter.config.port : 81;
     adapter.log.info('McLighting connect to: ' + host + ':' + port);
-    ws = new WebSocket('ws://' + host + ':' + port);
+
+    ws = new WebSocket('ws://' + host + ':' + port,{
+        perMessageDeflate : false
+    });
+
     ws.on('open', function open() {
-        send('something');
+        adapter.log.info(ws.url + ' McLighting connected');
         send('$');
         setTimeout(function (){
             send('~');
         }, 5000);
+        pingTimer = setInterval(function () {
+            ws.ping('ping', function ack(error) {});
+        }, 10000);
+        timeoutTimer = setInterval(function () {
+            if (!isAlive) {
+                ws.close();
+            }
+            else {
+                isAlive = false;
+            }
+        }, 60000);
     });
 
     ws.on('message', function incoming(data) {
         adapter.log.debug('message - ' + data);
+        isAlive = true;
         if(data === 'Connected'){
             adapter.setState('info.connection', true, true);
         }
@@ -167,9 +184,16 @@ var connect = function (){
         adapter.log.debug('Error WS - ' + data);
     });
     ws.on('close', function incoming(data) {
-        adapter.log.debug('CLOSE WS - ' + data);
+        clearInterval(pingTimer);
+        clearInterval(timeoutTimer);
+        adapter.log.debug('ERROR! WS CLOSE, CODE - ' + data);
         adapter.setState('info.connection', false, true);
+        adapter.log.debug('McLighting reconnect after 10 seconds');
         setTimeout(connect, 10000);
+    });
+    ws.on('pong', function(data) {
+        isAlive = true;
+        adapter.log.debug(ws.url + ' receive a pong : ' + data);
     });
 };
 
@@ -187,9 +211,9 @@ function send(data){
                     connect();
                 }
             } else {
-                adapter.log.debug('Send command:{' + data + '} - OK');
+                adapter.log.debug('Send command:{' + data + '}');
             }
-    });  
+    });
 }
 
 function parse(data){
@@ -228,8 +252,8 @@ function parse(data){
 
 function setStates(name, val){
     adapter.getState(name, function (err, state){
-        if ((err/* || !state*/)){
-            adapter.log.warn('Send this data ' + name);
+        if ((err)){
+            adapter.log.warn('Send this data developers ' + name);
         } else {
             adapter.setState(name, {val: val, ack: true});
         }

@@ -120,6 +120,9 @@ Where <brightness> is the brightness as value 0-255.
   
 ## Changelog
 
+### 0.0.10 (2018-04-02)
+* (instalator) fix error, added ping pong function for reconnect
+
 ### 0.0.4 (2018-03-27)
 * (instalator) fix error
 
