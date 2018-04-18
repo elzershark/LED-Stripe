@@ -1,6 +1,6 @@
 {
     "common": {
-        "name": "mclighting",
+        "name": "elzersharkmclighting",
         "version": "0.0.10",
         "news": {
             "0.0.10": {
@@ -83,9 +83,9 @@
         "icon": "mclighting.png",
         "materialize": true,
         "enabled": false,
-        "extIcon": "https://raw.githubusercontent.com/instalator/ioBroker.mclighting/master/admin/mclighting.png",
-        "keywords": ["mclighting", "rgb", "light", "ws2812", "esp8266"],
-        "readme": "https://github.com/instalator/ioBroker.mclighting/blob/master/README.md",
+        "extIcon": "https://raw.githubusercontent.com/elzershark/LED-Stripe/master/admin/mclighting.png",
+        "keywords": ["elzersharkmclighting", "rgb", "light", "ws2812", "esp8266"],
+        "readme": "https://github.com/elzershark/LED-Stripe/blob/master/README.md",
         "loglevel": "info",
         "type": "lighting"
     },
@@ -101,7 +101,7 @@
             "type": "state",
             "common": {
                 "role": "indicator.connected",
-                "name": "If connected to McLighting",
+                "name": "If connected to ElzersharkMcLighting",
                 "type": "boolean",
                 "read": true,
                 "write": false,
