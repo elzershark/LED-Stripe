@@ -1,20 +1,20 @@
 {
-  "name": "iobroker.mclighting",
+  "name": "iobroker.elzersharkmclighting",
   "version": "0.0.10",
-  "description": "ioBroker McLighting Adapter",
+  "description": "ioBroker ElzersharkMcLighting Adapter",
   "author": {
-    "name": "instalator",
-    "email": "vvvalt@mail.ru"
+    "name": "elzershark",
+    "email": "elzershark@yahoo.de"
   },
   "contributors": [
 
   ],
-  "homepage": "https://github.com/instalator/ioBroker.mclighting",
+  "homepage": "https://github.com/elzershark/LED-Stripe",
   "license": "MIT",
   "keywords": ["mclighting", "rgb", "light", "ws2812", "esp8266"],
   "repository": {
     "type": "git",
-    "url": "https://github.com/instalator/ioBroker.mclighting"
+    "url": "https://github.com/elzershark/LED-Stripe"
   },
   "dependencies": {
     "ws": "^5.1.0"
@@ -29,7 +29,7 @@
     "test": "node node_modules/mocha/bin/mocha --exit"
   },
   "bugs": {
-    "url": "https://github.com/instalator/ioBroker.mclighting/issues"
+    "url": "https://github.com/elzershark/LED-Stripe/issues"
   },
   "readmeFilename": "README.md"
 }
