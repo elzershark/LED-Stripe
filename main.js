@@ -1,6 +1,6 @@
 'use strict';
 var utils =    require(__dirname + '/lib/utils');
-var adapter = new utils.Adapter('mclighting');
+var adapter = new utils.Adapter('elzersharkmclighting');
 const WebSocket = require('ws');
 var ws, state_current = {},list_modes = null, flag = false, isAlive = false;
 var pingTimer, timeoutTimer;
