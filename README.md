@@ -1,5 +1,5 @@
 ![Logo](admin/mclighting.png)
-# ioBroker McLighting adapter
+# ioBroker McLighting Hue-Lamp Adapter
 =================
 
 ## Description
