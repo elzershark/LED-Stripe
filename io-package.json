@@ -91,6 +91,7 @@
     },
     "native": {
         "host" : "127.0.0.1",
+	"smart" : "Streifen",
         "port" : 81
     },
     "objects": [
