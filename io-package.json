@@ -44,16 +44,16 @@
                 "nl": "Eerste release"
             }
         },
-		"title": "McLighting adapter",
+		"title": "ElzersharkMcLighting adapter",
         "titleLang": {
-            "en": "McLighting adapter",
-            "de": "McLighting Vorlagenadapter",
-            "ru": "McLighting адаптер",
-            "pt": "Adaptador de McLighting",
-            "nl": "McLighting-adapter",
-            "fr": "McLighting adapter",
-            "it": "McLighting adapter",
-            "es": "McLighting adapter"
+            "en": "ElzersharkMcLighting adapter",
+            "de": "ElzersharkMcLighting Vorlagenadapter",
+            "ru": "ElzersharkMcLighting адаптер",
+            "pt": "ElzersharkAdaptador de McLighting",
+            "nl": "ElzersharkMcLighting-adapter",
+            "fr": "ElzersharkMcLighting adapter",
+            "it": "ElzersharkMcLighting adapter",
+            "es": "ElzersharkMcLighting adapter"
         },
         "desc": {
             "en": "Control the ESP8266 based multi-client lighting gadget",
@@ -312,6 +312,84 @@
                 "read": true,
                 "write": true,
                 "def": false
+            },
+            "native": {
+            }
+        },
+	{
+            "_id": "dimmer",
+            "type": "state",
+            "common": {
+                "role": "level.dimmer",
+                "name": "dimmer_",
+                "type": "number",
+                "min": 0,
+                "max":100,
+                "read": true,
+                "write": true,
+                "def": false,
+		"smartName": {
+      "de": "Streifen"
+    }
+            },
+            "native": {
+            }
+        },  
+          {
+            "_id": "hue",
+            "type": "state",
+            "common": {
+                "role": "level.color.hue",
+                "name": "hue_",
+                "type": "number",
+                "min": 0,
+                "max":65535,
+                "read": true,
+                "write": true,
+                "def": false,
+		"smartName": {
+      "de": "Streifen"
+    }
+            },
+            "native": {
+            }
+        },
+		
+          {
+            "_id": "saturation",
+            "type": "state",
+            "common": {
+                "role": "level.color.saturation",
+                "name": "saturation_",
+                "type": "number",
+                "min": 0,
+                "max":254,
+                "read": true,
+                "write": true,
+                "def": false,
+		"smartName": {
+      "de": "Streifen"
+    }
+            },
+            "native": {
+            }
+        },
+		
+          {
+            "_id": "temperature",
+            "type": "state",
+            "common": {
+                "role": "level.color.temperature",
+                "name": "temperature_",
+                "type": "number",
+                "min": 0,
+                "max":1000,
+                "read": true,
+                "write": true,
+                "def": false,
+		"smartName": {
+      "de": "Streifen"
+    }    
             },
             "native": {
             }
