@@ -65,7 +65,7 @@ adapter.on('stateChange', function (id, state) {
                 send('*' + rgbToHex(178, 235, 255));
             }}
         }
-//An/Aus schalten        
+//An/Aus/Dimmen schalten        
         if (command == 'dimmer')        
         {
             if(val === 0) {
@@ -75,14 +75,71 @@ adapter.on('stateChange', function (id, state) {
             if(val >= 1 && val <= 99) {
             send('%' + val/100*255); }
         }
-        
-        
-        
-        
-        
-        
-        
-        
+
+//Farben
+        if (command == 'hue'){
+    
+            setTimeout(function (){
+            adapter.getState('hue', function (err, state){
+            h1 = state.val / 360;
+            });
+            }, 400);  
+            setTimeout(function (){
+            adapter.getState('saturation', function (err, state){
+            s1 = state.val / 100;
+            });
+            }, 400);            
+            setTimeout(function (){
+            adapter.getState('dimmer', function (err, state){
+            v1 = state.val / 360;
+            });
+            }, 400);			
+            setTimeout(function (){
+				
+			i1 = Math.floor(h1 * 6);
+			f1 = h1 * 6 - i1;
+			p1 = (1 - s1) * v1;
+			k1 = f1 * s1;
+			q1 = (1 - k1) * v1;
+			l1 = (1 - f1) * s1;
+			t1 = (1 - l1) * v1;
+			if (i1 == 0) {
+			r1 = v1 * 255;
+			g1 = t1 * 255;
+			b1 = p1 * 255;
+			} else if (i1 == 1) {
+			r1 = q1 * 255;
+			g1 = v1 * 255;
+			b1 = p1 * 255;
+			} else if (i1 == 2) {
+			r1 = p1 * 255;
+			g1 = v1 * 255;
+			b1 = t1 * 255;
+			} else if (i1 == 3) {
+			r1 = p1 * 255;
+			g1 = q1 * 255;
+			b1 = v1 * 255;
+			} else if (i1 == 4) {
+			r1 = t1 * 255;
+			g1 = p1 * 255;
+			b1 = v1 * 255;
+			} else if (i1 == 5) {
+			r1 = v1 * 255;
+			g1 = p1 * 255;
+			b1 = q1 * 255;
+			}	
+            }, 700);
+
+            setTimeout(function (){
+
+
+            if(state_current.ws2812fx_mode !== 0){
+                send('#' + rgbToHex(Math.round(r1), Math.round(g1), Math.round(b1)));
+            } else {
+                send('*' + rgbToHex(Math.round(r1), Math.round(g1), Math.round(b1)));
+            }			
+			}, 1000);
+			}
         
 // Mein Script Ende        
         
