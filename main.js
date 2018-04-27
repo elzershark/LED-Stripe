@@ -32,7 +32,17 @@ adapter.on('stateChange', function (id, state) {
         
 // Mein Script Anfang
         
- 
+        if (command == 'temperature'){
+            
+             temperatur = getState("temperature").val;
+           if (temperatur == 250) {
+    r1 = 255;
+    g1 = 255;
+    b1 = 255;
+    timeout6 = setTimeout(function () {
+      setState("color"/*Set default color of the lamp*/, ([r1,',',g1,',',b1].join('')));
+    }, 500);
+        } 
         
 // Mein Script Ende        
         
