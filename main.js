@@ -34,13 +34,13 @@ adapter.on('stateChange', function (id, state) {
         
         if (command == 'temperature'){
             
-             temperatur = getState("temperature").val;
+             temperatur = getState('temperature');
            if (temperatur == 250) {
     r1 = 255;
     g1 = 255;
     b1 = 255;
     timeout6 = setTimeout(function () {
-      setState("color"/*Set default color of the lamp*/, ([r1,',',g1,',',b1].join('')));
+      setState('color', ([r1,',',g1,',',b1].join('')));
     }, 500);
         } 
         
