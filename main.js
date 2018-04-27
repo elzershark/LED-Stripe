@@ -35,7 +35,7 @@ adapter.on('stateChange', function (id, state) {
         if (command == 'temperature'){
     
  //           setTimeout(function (){
-            adapter.getState('temperature', (state){
+            adapter.getState('temperature', (err, state){
                 
                 
                 
