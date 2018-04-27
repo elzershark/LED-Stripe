@@ -33,38 +33,45 @@ adapter.on('stateChange', function (id, state) {
 // Mein Script Anfang
 // Farben Weiß, Warm Weiß, Weiches Weiß, tageslicht, Kühles Weiß  
         if (command == 'temperature'){
-            if(adapter.temperature === 250) {
+        adapter.getState('temperature', (state);
+    
+            setTimeout(function (){
+            if(state.val === 250) {
             if(state_current.ws2812fx_mode !== 0){
                 send('#' + rgbToHex(255, 255, 255));
             } else {
                 send('*' + rgbToHex(255, 255, 255));
             }}
-            if(val === 455) {
+            if(state.val === 455) {
             if(state_current.ws2812fx_mode !== 0){
                 send('#' + rgbToHex(255, 209, 66));
             } else {
                 send('*' + rgbToHex(255, 209, 209));
             }}
-            if(val === 370) {
+            if(state.val === 370) {
             if(state_current.ws2812fx_mode !== 0){
                 send('#' + rgbToHex(255, 244, 96));
             } else {
                 send('*' + rgbToHex(255, 244, 96));
             }}
-            if(val === 182) {
+            if(state.val === 182) {
             if(state_current.ws2812fx_mode !== 0){
                 send('#' + rgbToHex(216, 245, 255));
             } else {
                 send('*' + rgbToHex(216, 245, 255));
             }}
-            if(val === 143) {
+            if(state.val === 143) {
             if(state_current.ws2812fx_mode !== 0){
                 send('#' + rgbToHex(178, 235, 255));
             } else {
                 send('*' + rgbToHex(178, 235, 255));
-            }}    
+            }}
+            
+            }, 500);  
             }
-        
+
+
+     
         
         
         
