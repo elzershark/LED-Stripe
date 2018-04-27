@@ -31,7 +31,7 @@ adapter.on('stateChange', function (id, state) {
         }
         
 // Mein Script Anfang
-// Farben Weiß, Warm Weiß, Weiches Weiß, tageslicht, Kühles Weiß  
+// Farben Weiß, Warm Weiß, Weiches Weiß, tageslicht, Kühles Weiß
         if (command == 'temperature')
         {
             if(val === 250) {
