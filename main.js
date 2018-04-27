@@ -83,17 +83,17 @@ adapter.on('stateChange', function (id, state) {
             adapter.getState('hue', function (err, state){
             h1 = state.val / 360;
             });
-            }, 10);  
+            }, 400);  
             setTimeout(function (){
             adapter.getState('saturation', function (err, state){
             s1 = state.val / 100;
             });
-            }, 10);            
+            }, 400);            
             setTimeout(function (){
             adapter.getState('dimmer', function (err, state){
             v1 = state.val / 100;
             });
-            }, 10);			
+            }, 400);			
             setTimeout(function (){
 				
 			i1 = Math.floor(h1 * 6);
@@ -128,7 +128,7 @@ adapter.on('stateChange', function (id, state) {
 			g1 = p1 * 255;
 			b1 = q1 * 255;
 			}	
-            }, 20);
+            }, 500);
 
             setTimeout(function (){
 
@@ -138,7 +138,7 @@ adapter.on('stateChange', function (id, state) {
             } else {
                 send('*' + rgbToHex(Math.round(r1), Math.round(g1), Math.round(b1)));
             }			
-	    }, 30);
+	    }, 600);
 		      }
         
 // Mein Script Ende        
@@ -340,10 +340,14 @@ function parse(data){
                 for (var key in obj) {
                     if(obj.hasOwnProperty(key)){
                         if(key === 'color'){
+				
+				setTimeout(function (){
                             setStates('color_RGB', rgbToHex(obj[key][0], obj[key][1], obj[key][2]));
                             setStates('color_R', obj[key][0]);
                             setStates('color_G', obj[key][1]);
                             setStates('color_B', obj[key][2]);
+				}, 1000);
+				
                         }
                         setStates(key, obj[key]);
                     }
