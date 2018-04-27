@@ -128,7 +128,7 @@ adapter.on('stateChange', function (id, state) {
 			g1 = p1 * 255;
 			b1 = q1 * 255;
 			}	
-            }, 700);
+            }, 500);
 
             setTimeout(function (){
 
@@ -138,8 +138,8 @@ adapter.on('stateChange', function (id, state) {
             } else {
                 send('*' + rgbToHex(Math.round(r1), Math.round(g1), Math.round(b1)));
             }			
-			}, 1000);
-			}
+	    }, 600);
+		      }
         
 // Mein Script Ende        
         
