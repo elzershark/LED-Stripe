@@ -1,5 +1,5 @@
 'use strict';
-var speed, temperatur, Dimmer, Helligkeit, timeout3, an_aus, timeout4, r1, timeout5, g1, h1, b1, s1, timeout6, v1, timeout7, i1, timeout8, f1, timeout9, p1, timeout10, k1, q1, l1, t1, timeout2;
+var r1, g1, h1, b1, s1, v1, i1, f1, p1, k1, q1, l1, t1;
 var utils =    require(__dirname + '/lib/utils');
 var adapter = new utils.Adapter('elzersharkmclighting');
 const WebSocket = require('ws');
@@ -340,15 +340,11 @@ function parse(data){
                 for (var key in obj) {
                     if(obj.hasOwnProperty(key)){
                         if(key === 'color'){
-				
-				setTimeout(function (){
                             setStates('color_RGB', rgbToHex(obj[key][0], obj[key][1], obj[key][2]));
                             setStates('color_R', obj[key][0]);
                             setStates('color_G', obj[key][1]);
                             setStates('color_B', obj[key][2]);
-				}, 1000);
-				
-                        }
+		    }
                         setStates(key, obj[key]);
                     }
                     if(key === 'ws2812fx_mode'){
