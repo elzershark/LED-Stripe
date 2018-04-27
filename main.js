@@ -49,7 +49,7 @@ adapter.on('stateChange', function (id, state) {
             if(state_current.ws2812fx_mode !== 0){
                 send('#' + rgbToHex(255, 209, 66));
             } else {
-                send('*' + rgbToHex(255, 209, 209));
+                send('*' + rgbToHex(255, 209, 66));
             }}
             if(state.val === 370) {
             if(state_current.ws2812fx_mode !== 0){
