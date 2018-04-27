@@ -34,8 +34,8 @@ adapter.on('stateChange', function (id, state) {
 // Farben Weiß, Warm Weiß, Weiches Weiß, tageslicht, Kühles Weiß  
         if (command == 'temperature'){
     
-            setTimeout(function (){
-            adapter.getState('temperature', function (err, state){
+ //           setTimeout(function (){
+            adapter.getState('temperature', (state){
                 
                 
                 
@@ -68,7 +68,8 @@ adapter.on('stateChange', function (id, state) {
                 send('#' + rgbToHex(178, 235, 255));
             } else {
                 send('*' + rgbToHex(178, 235, 255));
-            }}});
+            //}
+            }});
             
             }, 500);  
             }
