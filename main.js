@@ -33,7 +33,7 @@ adapter.on('stateChange', function (id, state) {
 // Mein Script Anfang
         
         if (command == 'temperature'){
-            if(val === '250') {
+            if(val === 250) {
             if(state_current.ws2812fx_mode !== 0){
                 send('#' + rgbToHex(255, val, 255));
             } else {
