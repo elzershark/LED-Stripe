@@ -34,16 +34,27 @@ adapter.on('stateChange', function (id, state) {
         
         if (command == 'temperature'){
             
-   //          temperatur = adapter.getState('temperature');
- //          if (adapter.temperature == 250) {
+ //          temperatur = adapter.getState('temperature');
+           if (adapter.temperature == 250) {
     r1 = 255;
     g1 = 255;
     b1 = 255;
- 
-      adapter.setState('color', ([r1,',',g1,',',b1]));
-   
-        } 
- //       }
+//     adapter.setState('color', ([r1,',',g1,',',b1]));
+                   
+            if(state_current.ws2812fx_mode !== 0){
+                send('#' + rgbToHex(r1, g1, b1));
+            } else {
+                send('*' + rgbToHex(r1, g1, b1));
+            }
+        
+            
+            
+            
+            
+            
+           }    
+       } 
+
 // Mein Script Ende        
         
         if (command == 'fx_mode'){
