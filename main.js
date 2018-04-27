@@ -83,17 +83,17 @@ adapter.on('stateChange', function (id, state) {
             adapter.getState('hue', function (err, state){
             h1 = state.val / 360;
             });
-            }, 400);  
+            }, 10);  
             setTimeout(function (){
             adapter.getState('saturation', function (err, state){
             s1 = state.val / 100;
             });
-            }, 400);            
+            }, 10);            
             setTimeout(function (){
             adapter.getState('dimmer', function (err, state){
             v1 = state.val / 100;
             });
-            }, 400);			
+            }, 10);			
             setTimeout(function (){
 				
 			i1 = Math.floor(h1 * 6);
@@ -128,7 +128,7 @@ adapter.on('stateChange', function (id, state) {
 			g1 = p1 * 255;
 			b1 = q1 * 255;
 			}	
-            }, 500);
+            }, 20);
 
             setTimeout(function (){
 
@@ -138,7 +138,7 @@ adapter.on('stateChange', function (id, state) {
             } else {
                 send('*' + rgbToHex(Math.round(r1), Math.round(g1), Math.round(b1)));
             }			
-	    }, 600);
+	    }, 30);
 		      }
         
 // Mein Script Ende        
