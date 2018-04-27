@@ -65,6 +65,23 @@ adapter.on('stateChange', function (id, state) {
                 send('*' + rgbToHex(178, 235, 255));
             }}
         }
+//An/Aus schalten        
+        if (command == 'dimmer')        
+        {
+            if(val === 0) {
+            send('=off'); }
+            if(val === 100) {
+            send('=all'); }
+        }
+        
+        
+        
+        
+        
+        
+        
+        
+        
 // Mein Script Ende        
         
         if (command == 'fx_mode'){
