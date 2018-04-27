@@ -43,7 +43,7 @@ adapter.on('stateChange', function (id, state) {
       setState('color', ([r1,',',g1,',',b1].join('')));
     }, 500);
         } 
-        
+        }
 // Mein Script Ende        
         
         if (command == 'fx_mode'){
