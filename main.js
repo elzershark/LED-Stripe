@@ -32,18 +32,7 @@ adapter.on('stateChange', function (id, state) {
         
 // Mein Script Anfang
         
-//  temperatur = 'temperature';
-  temperatur = getState('temperature');
-  if (temperatur == 250) {
-    r1 = 255;
-    g1 = 255;
-    b1 = 255;
-    timeout6 = setTimeout(function () {
-      setState('color', ([r1,',',g1,',',b1]));
-    }, 500);
-  }
-       
-        
+ 
         
 // Mein Script Ende        
         
