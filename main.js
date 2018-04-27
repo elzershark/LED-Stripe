@@ -34,14 +34,14 @@ adapter.on('stateChange', function (id, state) {
         
         if (command == 'temperature'){
             
-             temperatur = adapter.getState('temperature');
-           if (temperatur == 250) {
+   //          temperatur = adapter.getState('temperature');
+           if (temperature == 250) {
     r1 = 255;
     g1 = 255;
     b1 = 255;
-    timeout6 = setTimeout(function () {
+ 
       adapter.setState('color', ([r1,',',g1,',',b1]));
-    }, 500);
+   
         } 
         }
 // Mein Script Ende        
