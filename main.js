@@ -35,7 +35,15 @@ adapter.on('stateChange', function (id, state) {
         if (command == 'temperature'){
             
  //          temperatur = adapter.getState('temperature');
-       //    if (adapter.temperature == 250) {
+           if (adapter.temperature === 250) {
+               
+               
+             // if(val > 255)  
+               
+               
+               
+               
+               
     r1 = 255;
     g1 = 255;
     b1 = 255;
@@ -47,7 +55,7 @@ adapter.on('stateChange', function (id, state) {
                 send('*' + rgbToHex(r1, g1, b1));
             }
         
-            
+           }
             
             
             
