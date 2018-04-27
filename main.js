@@ -72,7 +72,7 @@ adapter.on('stateChange', function (id, state) {
             send('=off'); }
             if(val === 100) {
             send('=all'); }
-            if(val >== 1 && val <== 99) {
+            if(val >= 1 && val <= 99) {
             send('%' + val/100*255); }
         }
         
