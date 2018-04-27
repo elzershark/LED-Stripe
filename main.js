@@ -40,7 +40,7 @@ adapter.on('stateChange', function (id, state) {
     g1 = 255;
     b1 = 255;
  
-      adapter.setState('color', ([r1,',',g1,',',b1]));
+      setState('color', ([r1,',',g1,',',b1]));
    
         } 
         }
