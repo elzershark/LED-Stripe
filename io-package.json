@@ -1,8 +1,16 @@
 {
     "common": {
         "name": "elzersharkmclighting",
-        "version": "0.0.10",
+        "version": "0.1.01",
         "news": {
+	    "0.1.01": {
+                "en": "hue integration",
+                "de": "hue integration",
+                "ru": "hue integration",
+                "pt": "hue integration",
+                "fr": "hue integration",
+                "nl": "hue integration"
+            },
             "0.0.10": {
                 "en": "fix error, added ping pong function for reconnect",
                 "de": "fix error, added ping pong function for reconnect",
