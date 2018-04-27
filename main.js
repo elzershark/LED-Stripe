@@ -33,9 +33,12 @@ adapter.on('stateChange', function (id, state) {
 // Mein Script Anfang
 // Farben Weiß, Warm Weiß, Weiches Weiß, tageslicht, Kühles Weiß  
         if (command == 'temperature'){
-        adapter.getState('temperature', (state);
     
             setTimeout(function (){
+            adapter.getState('temperature', function (err, state){
+                
+                
+                
             if(state.val === 250) {
             if(state_current.ws2812fx_mode !== 0){
                 send('#' + rgbToHex(255, 255, 255));
@@ -65,7 +68,7 @@ adapter.on('stateChange', function (id, state) {
                 send('#' + rgbToHex(178, 235, 255));
             } else {
                 send('*' + rgbToHex(178, 235, 255));
-            }}
+            }}});
             
             }, 500);  
             }
