@@ -145,15 +145,6 @@ adapter.on('stateChange', function (id, state) {
                 send('*' + rgbToHex(Math.round(r1), Math.round(g1), Math.round(b1)));
             }			
 	    }, 600);
-		setTimeout(function (){
-
-
-            if(state_current.ws2812fx_mode !== 0){
-                send('#' + rgbToHex(Math.round(r1), Math.round(g1), Math.round(b1)));
-            } else {
-                send('*' + rgbToHex(Math.round(r1), Math.round(g1), Math.round(b1)));
-            }			
-	    }, 700);
 		      }
         
 // Mein Script Ende        
