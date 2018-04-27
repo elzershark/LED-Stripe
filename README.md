@@ -3,7 +3,7 @@
 =================
 
 ## Description
-The driver allows you to control the RGB strip on the LEDs WS2811/WS2812 connected to the ESP8266 with firmware [McLighting](https://github.com/toblum/McLighting)
+The driver allows you to control the RGB strip like a hue lamp on the LEDs WS2811/WS2812 connected to the ESP8266 with firmware [McLighting](https://github.com/toblum/McLighting)
 
 ## Using
 
