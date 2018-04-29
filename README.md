@@ -109,5 +109,7 @@ Where <brightness> is the brightness as value 0-255.
 ### fx_mode_name
  Current name fx_mode
   
-## Changelog
+## Original Script: 
+https://github.com/instalator/ioBroker.mclighting
+Instalator
 
