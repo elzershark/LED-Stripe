@@ -271,14 +271,12 @@ var connect = function (){
 	
 	//Test
 	
-    setStates(adapter.hue, {
-      smartName: {
+createState('Hue', '', {smartName: {
           de: smart
-        }
-    });
-	
-	
-	
+        }});
+
+// adapter.setState([context.id, 'effect'].join('.'), {val: context.finalLS[finalState] === 'colorloop', ack: true});
+
 	//Test
     adapter.log.info('ElzersharkMcLighting connect to: ' + host + ':' + port);
 
