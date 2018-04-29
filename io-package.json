@@ -355,10 +355,7 @@
                 "max":360,
                 "read": true,
                 "write": true,
-                "def": false,
-		"smartName": {
-      "de": "Streifen"
-    }
+                "def": false
             },
             "native": {
             }
