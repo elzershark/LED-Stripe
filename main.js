@@ -271,7 +271,7 @@ var connect = function (){
 	
 	//Test
 	
-    setStates(adapter.hue, {
+    setStates('hue', {
       smartName: {
           de: smart
         }
