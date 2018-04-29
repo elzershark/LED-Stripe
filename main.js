@@ -267,6 +267,19 @@ var connect = function (){
     var host = adapter.config.host ? adapter.config.host : '127.0.0.1';
     var port = adapter.config.port ? adapter.config.port : 81;
     var smart = adapter.config.smart ? adapter.config.smart : 'Streifen';
+	
+	
+	//Test
+	
+    setStates(adapter.hue, {
+      smartName: {
+          de: smart
+        }
+    });
+	
+	
+	
+	//Test
     adapter.log.info('ElzersharkMcLighting connect to: ' + host + ':' + port);
 
     ws = new WebSocket('ws://' + host + ':' + port,{
