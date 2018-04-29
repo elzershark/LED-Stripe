@@ -271,7 +271,7 @@ var connect = function (){
 	
 	//Test
 	
-createState('hue', '', {smartName: {
+setStates('hue', '', {smartName: {
           de: smart
         }});
 
