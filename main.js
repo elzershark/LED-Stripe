@@ -70,8 +70,8 @@ adapter.on('stateChange', function (id, state) {
 	 {
 	//	  var zahlm = adapter.getState('zahl').val;
             if(val === 0) { send('=off'); }
-            if(val === 100 // && zahlm === 101) 
-	    { send('=all'); }
+            if(val === 100 {// && zahlm === 101) 
+	    send('=all'); }
 	    
 	  //  if(val === 100 // && zahlm <= 57)
 	//	{send('/' + zahlm-1); }	
