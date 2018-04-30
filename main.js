@@ -82,21 +82,21 @@ adapter.on('stateChange', function (id, state) {
             setTimeout(function (){
             adapter.getState('hue', function (err, state){
 		     if (!err){
-            h1 = state.val / 360;
+            h1 = state.val / 65535;
 	    }
             });
             }, 400);  
             setTimeout(function (){
             adapter.getState('saturation', function (err, state){
 		    if (!err){
-            s1 = state.val / 100;
+            s1 = state.val / 254;
 		    }
             });
             }, 400);            
             setTimeout(function (){
             adapter.getState('dimmer', function (err, state){
 		    if (!err){
-            v1 = state.val / 100;
+            v1 = state.val / 254;
 		    }
             });
             }, 400);			
