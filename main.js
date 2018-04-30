@@ -72,7 +72,7 @@ adapter.on('stateChange', function (id, state) {
             send('=off'); }
             if(val === 100 && adapter.zahl === 101) {
             send('=all'); }
-		else if(val === 100 && adapter.zahl <> 101) {
+		else if(val === 100 && adapter.zahl <= 57) {
             send('/' + adapter.zahl-1); }
 			
 			
