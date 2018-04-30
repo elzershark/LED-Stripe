@@ -79,7 +79,7 @@ setTimeout(function (){
 		
 		setTimeout(function (){
 
-            if(val === 100 && zaln === 101) {
+            if(val === 100 && zahln === 101) {
 	    send('=all'); }
 	    if(val >= 1 && val <= 99) {
             send('%' + val/100*255); }			
