@@ -36,33 +36,33 @@ adapter.on('stateChange', function (id, state) {
         {
             if(val === 250) {
             if(state_current.ws2812fx_mode !== 0){
-                send('#' + rgbToHex(255, 255, 255));
+                send('#' + rgbToHex(254, 236, 186));
             } else {
-                send('*' + rgbToHex(255, 255, 255));
+                send('*' + rgbToHex(254, 236, 186));
             }}
             if(val === 455) {
             if(state_current.ws2812fx_mode !== 0){
-                send('#' + rgbToHex(255, 209, 66));
+                send('#' + rgbToHex(254, 186, 82));
             } else {
-                send('*' + rgbToHex(255, 209, 66));
+                send('*' + rgbToHex(254, 186, 82));
             }}
             if(val === 370) {
             if(state_current.ws2812fx_mode !== 0){
-                send('#' + rgbToHex(255, 244, 96));
+                send('#' + rgbToHex(254, 205, 118));
             } else {
-                send('*' + rgbToHex(255, 244, 96));
+                send('*' + rgbToHex(254, 205, 118));
             }}
             if(val === 182) {
             if(state_current.ws2812fx_mode !== 0){
-                send('#' + rgbToHex(216, 245, 255));
+                send('#' + rgbToHex(253, 254, 238));
             } else {
-                send('*' + rgbToHex(216, 245, 255));
+                send('*' + rgbToHex(253, 254, 238));
             }}
-            if(val === 143) {
+            if(val === 153) {
             if(state_current.ws2812fx_mode !== 0){
-                send('#' + rgbToHex(178, 235, 255));
+                send('#' + rgbToHex(243, 252, 254));
             } else {
-                send('*' + rgbToHex(178, 235, 255));
+                send('*' + rgbToHex(243, 252, 254));
             }}
         }
 //An/Aus/Dimmen schalten        
