@@ -69,23 +69,33 @@ adapter.on('stateChange', function (id, state) {
         if (command == 'dimmer')
 	{
 		
-		
-	
+setTimeout(function (){
             adapter.getState('zahl', function (err, state){
 		     if (!err){
             zahln = state.val;
 			 }
             });
+            }, 50);
+		
+		setTimeout(function (){
+
+            if(val === 100 && zaln === 101) {
+	    send('=all'); }
+	    if(val >= 1 && val <= 99) {
+            send('%' + val/100*255); }			
+			
+			
+			
+            }, 100);
+		
+		
             
 			 
 		 
 		 
             if(val === 0) {
             send('=off'); }
-            if(val === 100 && zaln === 101) {
-	    send('=all'); }
-	    if(val >= 1 && val <= 99) {
-            send('%' + val/100*255); }
+
         }
 
 //Farben
