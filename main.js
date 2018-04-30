@@ -81,8 +81,13 @@ setTimeout(function (){
 
             if(val === 100 && zahln === 101) {
 	    send('=all'); }
-	    if(val >= 1 && val <= 99) {
-            send('%' + val/100*255); }			
+	    if(val >= 1 && val <= 99 && zahln === 101) {
+            send('%' + val/100*255); }
+      
+     
+          if(zahln >= 1) && zahln <=57 {
+           send('/' + zahln-1); }
+               	
 			
 			
 			
@@ -168,17 +173,7 @@ setTimeout(function (){
             }			
 	    }, 600);
 		      }
-	    
-	    
-	    // Effekte
-	    
-//	    if (command == 'zahl')        
-  //      {
-    //        if(val >= 1) && val <=57 {
-      //      send('/' + val-1); }
-        //           }
 
-        
 // Mein Script Ende        
         
         if (command == 'fx_mode'){
