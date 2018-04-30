@@ -69,8 +69,9 @@ adapter.on('stateChange', function (id, state) {
         if (command == 'dimmer')
 	 {
 	//	  var zahlm = adapter.getState('zahl').val;
+		 // && zahlm === 101) 
             if(val === 0) { send('=off'); }
-            if(val === 100 {// && zahlm === 101) 
+            if(val === 100 {
 	    send('=all'); }
 	    
 	  //  if(val === 100 // && zahlm <= 57)
