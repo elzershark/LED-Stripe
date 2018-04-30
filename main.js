@@ -85,7 +85,7 @@ setTimeout(function (){
             send('%' + val/100*255); }
       
      
-          if(zahln >= 1) && zahln <=57 {
+          if(zahln >= 1 && zahln <= 57) {
            send('/' + zahln-1); }
                	
 			
