@@ -412,6 +412,7 @@
                 "type": "number",
                 "min": 0,
                 "max": 100,
+		 "def": 101,
                 "read": true,
                 "write": true,
                 "def": false
