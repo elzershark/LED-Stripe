@@ -68,7 +68,7 @@ adapter.on('stateChange', function (id, state) {
 //An/Aus/Dimmen schalten        
         if (command == 'dimmer')
 	 {
-		 var zaln = adapter.getState('zahl').val;
+		 var zaln = getState('zahl').val;
             if(val === 0) {
             send('=off'); }
             if(val === 100 && zaln === 101) {
