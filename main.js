@@ -70,8 +70,16 @@ adapter.on('stateChange', function (id, state) {
         {
             if(val === 0) {
             send('=off'); }
-            if(val === 100) {
+            if(val === 100 && adapter.zahl === 101) {
             send('=all'); }
+		else if(val === 100 && adapter.zahl <> 101) {
+            send('/' + adapter.zahl-1); }
+			
+			
+			
+			
+			
+			
             if(val >= 1 && val <= 99) {
             send('%' + val/100*255); }
         }
@@ -150,11 +158,11 @@ adapter.on('stateChange', function (id, state) {
 	    
 	    // Effekte
 	    
-	    if (command == 'zahl')        
-        {
-            if(val >= 1) && val <=57 {
-            send('/' + val-1); }
-                   }
+//	    if (command == 'zahl')        
+  //      {
+    //        if(val >= 1) && val <=57 {
+      //      send('/' + val-1); }
+        //           }
 
         
 // Mein Script Ende        
