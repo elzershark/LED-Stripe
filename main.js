@@ -96,7 +96,7 @@ adapter.on('stateChange', function (id, state) {
             setTimeout(function (){
             adapter.getState('dimmer', function (err, state){
 		    if (!err){
-            v1 = state.val / 254;
+            v1 = state.val / 100;
 		    }
             });
             }, 400);			
