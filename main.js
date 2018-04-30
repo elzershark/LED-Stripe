@@ -1,5 +1,5 @@
 'use strict';
-var r1, g1, h1, b1, s1, v1, i1, f1, p1, k1, q1, l1, t1;
+var r1, g1, h1, b1, s1, v1, i1, f1, p1, k1, q1, l1, t1, zahln;
 var utils =    require(__dirname + '/lib/utils');
 var adapter = new utils.Adapter('elzersharkmclighting');
 const WebSocket = require('ws');
@@ -67,8 +67,19 @@ adapter.on('stateChange', function (id, state) {
         }
 //An/Aus/Dimmen schalten        
         if (command == 'dimmer')
-	 {
-		 var zaln = getState('zahl').val;
+	{
+		
+		
+	
+            adapter.getState('zahl', function (err, state){
+		     if (!err){
+            zahln = state.val;
+			 }
+            });
+            
+			 
+		 
+		 
             if(val === 0) {
             send('=off'); }
             if(val === 100 && zaln === 101) {
