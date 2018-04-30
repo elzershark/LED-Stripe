@@ -403,6 +403,23 @@
             "native": {
             }
         },
+	 {
+            "_id": "zahl",
+            "type": "state",
+            "common": {
+                "role": "state",
+                "name": "zahl",
+                "type": "number",
+                "min": 0,
+                "max": 100,
+                "read": true,
+                "write": true,
+                "def": false
+		
+            },
+            "native": {
+            }
+        },
         {
             "_id": "list_modes",
             "type": "state",
