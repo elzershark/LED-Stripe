@@ -146,6 +146,16 @@ adapter.on('stateChange', function (id, state) {
             }			
 	    }, 600);
 		      }
+	    
+	    
+	    // Effekte
+	    
+	    if (command == 'zahl')        
+        {
+            if(val >= 1) && val <=57 {
+            send('/' + val-1); }
+                   }
+
         
 // Mein Script Ende        
         
