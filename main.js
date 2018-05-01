@@ -91,7 +91,9 @@ adapter.on('stateChange', function (id, state) {
 
           if(zahln >= 1 && zahln <= 57) {
 	   zahln = zahln - 1;
-           send('/' + zahln); }
+           send('/' + zahln); 
+	  setStates('zahl', 101);
+	  }
 		  		    }, 400); 
             if(val === 0) {
             send('=off'); }
@@ -327,17 +329,9 @@ var connect = function (){
         adapter.log.debug('message - ' + data);
         isAlive = true;
         if(data === 'Connected'){
-					    
-		
-		
-		
-				
 				setStates('zahl', 101);
-						
-		
-		
-		
-            adapter.setState('info.connection', true, true);
+
+		adapter.setState('info.connection', true, true);
         }
         parse(data);
     });
