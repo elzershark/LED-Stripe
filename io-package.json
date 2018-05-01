@@ -411,7 +411,7 @@
                 "name": "effekt_",
                 "type": "number",
                 "min": 0,
-                "max":254,
+                "max":100,
                 "read": true,
                 "write": true,
                 "def": false,
