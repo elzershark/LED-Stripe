@@ -365,6 +365,7 @@ function parse(data){
                 for (var key in obj) {
                     if(obj.hasOwnProperty(key)){
                         if(key === 'color'){
+				            setTimeout(function (){
                             setStates('color_RGB', rgbToHex(obj[key][0], obj[key][1], obj[key][2]));
                             setStates('color_R', obj[key][0]);
                             setStates('color_G', obj[key][1]);
@@ -373,7 +374,11 @@ function parse(data){
 			    setStates('hue', '', {smartName: {
           de: smart
         }});
-		    }
+		    
+			            }, 1400);  		    
+					    
+					    
+					    }
                         setStates(key, obj[key]);
                     }
                     if(key === 'ws2812fx_mode'){
