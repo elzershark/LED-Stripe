@@ -315,6 +315,16 @@ var connect = function (){
         adapter.log.debug('message - ' + data);
         isAlive = true;
         if(data === 'Connected'){
+					    
+		
+		
+		
+				
+				setStates('zahl', 101);
+						
+		
+		
+		
             adapter.setState('info.connection', true, true);
         }
         parse(data);
@@ -358,7 +368,6 @@ function send(data){
 
 function parse(data){
     var obj;
-	setTimeout(function (){
     try {
         obj = JSON.parse(data);
             if(obj.mode && obj.brightness){
@@ -371,12 +380,6 @@ function parse(data){
                             setStates('color_R', obj[key][0]);
                             setStates('color_G', obj[key][1]);
                             setStates('color_B', obj[key][2]);
-			    setStates('zahl', 101);
-
-		    
-			         		    
-					    
-					    
 					    }
                         setStates(key, obj[key]);
                     }
@@ -396,7 +399,6 @@ function parse(data){
     } catch (err) {
         adapter.log.debug('Error parse - ' + err);
     }
-		   }, 1400);  
 }
 
 function setStates(name, val){
