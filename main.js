@@ -371,9 +371,7 @@ function parse(data){
                             setStates('color_G', obj[key][1]);
                             setStates('color_B', obj[key][2]);
 			    setStates('zahl', 101);
-			    setStates('hue', '', {smartName: {
-          de: smart
-        }});
+
 		    
 			            }, 1400);  		    
 					    
