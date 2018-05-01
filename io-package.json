@@ -174,7 +174,10 @@
                 "max":255,
                 "read": true,
                 "write": true,
-                "def": false
+                "def": false,
+		"smartName": {
+      "de": "Streifenspeed"
+    }
             },
             "native": {
             }
