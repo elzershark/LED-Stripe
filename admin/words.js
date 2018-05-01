@@ -10,7 +10,5 @@ systemDictionary = {
     "host_ip": {"en": "ip address your ESP", "de": "IP Adresse vom ESP", "ru": "ip адрес вашего ESP", "pt": "ip address your ESP", "nl": "ip address your ESP", "fr": "ip address your ESP", "it": "ip address your ESP", "es": "ip address your ESP"},
     'port_': {"en": "used port your ESP","de": "Port vom ESP","ru": "использующийся порт вашей ESP", "pt": "used port your ESP", "nl": "used port your ESP", "fr": "used port your ESP","it": "used port your ESP","es": "used port your ESP"},
     'host': {"en": "Нost","de": "Нost","ru": "Хост", "pt": "Нost", "nl": "Нost", "fr": "Нost","it": "Нost","es": "Нost"},
-    "port": {"en": "Port","de": "Port","ru": "Порт","pt": "Port","nl": "Port","fr": "Port","it": "Port","es": "Port"},
-    "smart": {"en": "SmartName","de": "SmartName","ru": "SmartName","pt": "SmartName","nl": "SmartName","fr": "SmartName","it": "SmartName","es": "SmartName"},
-    'smart_': {"en": "Smart Home Device Name","de": "Smart Home Geräte Name","ru": "Smart Home Device Name", "pt": "Smart Home Device Name", "nl": "Smart Home Device Name", "fr": "Smart Home Device Name","it": "Smart Home Device Name","es": "Smart Home Device Name"}
+    "port": {"en": "Port","de": "Port","ru": "Порт","pt": "Port","nl": "Port","fr": "Port","it": "Port","es": "Port"}
 };
