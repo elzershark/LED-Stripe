@@ -358,6 +358,7 @@ function send(data){
 
 function parse(data){
     var obj;
+	setTimeout(function (){
     try {
         obj = JSON.parse(data);
             if(obj.mode && obj.brightness){
@@ -365,7 +366,7 @@ function parse(data){
                 for (var key in obj) {
                     if(obj.hasOwnProperty(key)){
                         if(key === 'color'){
-				            setTimeout(function (){
+				            
                             setStates('color_RGB', rgbToHex(obj[key][0], obj[key][1], obj[key][2]));
                             setStates('color_R', obj[key][0]);
                             setStates('color_G', obj[key][1]);
@@ -373,7 +374,7 @@ function parse(data){
 			    setStates('zahl', 101);
 
 		    
-			            }, 1400);  		    
+			         		    
 					    
 					    
 					    }
@@ -395,6 +396,7 @@ function parse(data){
     } catch (err) {
         adapter.log.debug('Error parse - ' + err);
     }
+		   }, 1400);  
 }
 
 function setStates(name, val){
