@@ -69,15 +69,15 @@ adapter.on('stateChange', function (id, state) {
         if (command == 'dimmer')
 	{
 		
-setTimeout(function (){
+//setTimeout(function (){
             adapter.getState('zahl', function (err, state){
 		     if (!err){
             zahln = state.val;
 			 }
             });
-            }, 50);
+  //          }, 50);
 		
-		setTimeout(function (){
+//		setTimeout(function (){
 
             if(val === 100 && zahln === 101) {
 	    send('=all'); }
@@ -92,7 +92,7 @@ setTimeout(function (){
 			
 			
 			
-            }, 100);
+ //           }, 100);
 		
 		
             
