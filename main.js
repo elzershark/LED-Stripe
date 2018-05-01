@@ -68,22 +68,34 @@ adapter.on('stateChange', function (id, state) {
 //An/Aus/Dimmen/Effekte schalten        
         if (command == 'dimmer')
 	{
+
             adapter.getState('zahl', function (err, state){
 		     if (!err){
             zahln = state.val;
 			 }
             });
+
+	
             if(val === 100 && zahln === 101) {
 	    send('=all'); }
+	
 	    if(val >= 1 && val <= 99 && zahln === 101) {
             send('%' + val/100*255); }
       
-     
+     	  setTimeout(function (){
+		   adapter.getState('zahl', function (err, state){
+		     if (!err){
+            zahln = state.val;
+			 }
+            });
+
           if(zahln >= 1 && zahln <= 57) {
 	   zahln = zahln - 1;
            send('/' + zahln); }
+		  		    }, 400); 
             if(val === 0) {
             send('=off'); }
+		  
         }
 
 //Farben
