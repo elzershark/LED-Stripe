@@ -1,5 +1,5 @@
 'use strict';
-var r1, g1, h1, b1, s1, v1, i1, f1, p1, k1, q1, l1, t1, zahln;
+var r1, g1, h1, b1, s1, v1, i1, f1, p1, k1, q1, l1, t1, zahln, speedn;
 var utils =    require(__dirname + '/lib/utils');
 var adapter = new utils.Adapter('elzersharkmclighting');
 const WebSocket = require('ws');
@@ -72,28 +72,58 @@ adapter.on('stateChange', function (id, state) {
             adapter.getState('zahl', function (err, state){
 		     if (!err){
             zahln = state.val;
-			 }
-            });
+			 }});
 
 	
             if(val === 100 && zahln === 101) {
 	    send('=all'); }
-	
 	    if(val >= 1 && val <= 99 && zahln === 101) {
             send('%' + val/100*255); }
-      
-     	  setTimeout(function (){
-		   adapter.getState('zahl', function (err, state){
-		     if (!err){
+     	    
+		setTimeout(function (){
+		adapter.getState('zahl', function (err, state){
+	    if (!err){
             zahln = state.val;
-			 }
-            });
+			 }});
 
           if(zahln >= 1 && zahln <= 57) {
 	   zahln = zahln - 1;
            send('/' + zahln); 
 	  setStates('zahl', 101);
 	  }
+	          if(zahln === 0) {
+	    adapter.getState('speed', function (err, state){
+	    if (!err){
+            speedn = state.val;
+			 }}); 
+		speedn = speedn - 51;
+	        if(speedn < 0) speedn = 0;
+	        send('?' + speedn); 
+	  setStates('zahl', 101);
+	  }
+			
+			
+			
+			if(zahln === 100) {
+	    adapter.getState('speed', function (err, state){
+	    if (!err){
+            speedn = state.val;
+			 }}); 
+		speedn = speedn + 51;
+	        if(speedn < 255) speedn = 255;
+	        send('?' + speedn); 
+	  setStates('zahl', 101);
+	  }		
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
 		  		    }, 400); 
             if(val === 0) {
             send('=off'); }
