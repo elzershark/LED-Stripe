@@ -403,6 +403,25 @@
             "native": {
             }
         },
+	    {
+            "_id": "effekt",
+            "type": "state",
+            "common": {
+                "role": "state",
+                "name": "effekt_",
+                "type": "number",
+                "min": 0,
+                "max":254,
+                "read": true,
+                "write": true,
+                "def": false,
+		"smartName": {
+      "de": "Streifeneffekt"
+    }
+            },
+            "native": {
+            }
+        },
 	  {
             "_id": "list_modes",
             "type": "state",
