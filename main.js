@@ -65,20 +65,14 @@ adapter.on('stateChange', function (id, state) {
                 send('*' + rgbToHex(243, 252, 254));
             }}
         }
-//An/Aus/Dimmen schalten        
+//An/Aus/Dimmen/Effekte schalten        
         if (command == 'dimmer')
 	{
-		
-//setTimeout(function (){
             adapter.getState('zahl', function (err, state){
 		     if (!err){
             zahln = state.val;
 			 }
             });
-  //          }, 50);
-		
-//		setTimeout(function (){
-
             if(val === 100 && zahln === 101) {
 	    send('=all'); }
 	    if(val >= 1 && val <= 99 && zahln === 101) {
@@ -88,20 +82,8 @@ adapter.on('stateChange', function (id, state) {
           if(zahln >= 1 && zahln <= 57) {
 	   zahln = zahln - 1;
            send('/' + zahln); }
-               	
-			
-			
-			
- //           }, 100);
-		
-		
-            
-			 
-		 
-		 
             if(val === 0) {
             send('=off'); }
-
         }
 
 //Farben
@@ -299,9 +281,7 @@ var connect = function (){
 	
 	//Test
 	
-setStates('hue', '', {smartName: {
-          de: smart
-        }});
+
 
 // adapter.setState([context.id, 'effect'].join('.'), {val: context.finalLS[finalState] === 'colorloop', ack: true});
 
@@ -389,6 +369,10 @@ function parse(data){
                             setStates('color_R', obj[key][0]);
                             setStates('color_G', obj[key][1]);
                             setStates('color_B', obj[key][2]);
+			    setStates('zahl', 101);
+			    setStates('hue', '', {smartName: {
+          de: smart
+        }});
 		    }
                         setStates(key, obj[key]);
                     }
