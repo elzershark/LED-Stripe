@@ -86,7 +86,7 @@ setTimeout(function (){
       
      
           if(zahln >= 1 && zahln <= 57) {
-           send('/' + zahln); }
+           send('/' + zahln-1); }
                	
 			
 			
