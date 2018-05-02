@@ -156,7 +156,11 @@ adapter.on('stateChange', function (id, state) {
 // Mein Script Ende        
         
         if (command == 'fx_mode'){
-            send('/' + val);
+            if (val >=0 && val <= 56){
+	    send('/' + val);}
+            // Effekt Auto
+	    if (val >=57){
+	    setStates('mode', "tv");}	    
         }
         if (command == 'color'){
             var c = val.split(",");
