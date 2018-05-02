@@ -137,7 +137,7 @@
             "type": "state",
             "common": {
                 "role": "state",
-                "name": "Set animation mode",
+                "name": "Set animation mode_",
                 "type": "number",
                 "read": true,
                 "write": true,
@@ -168,7 +168,7 @@
             "type": "state",
             "common": {
                 "role": "state",
-                "name": "Set speed",
+                "name": "Set speed_",
                 "type": "number",
                 "min": 0,
                 "max":255,
