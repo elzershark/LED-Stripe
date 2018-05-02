@@ -153,15 +153,15 @@ adapter.on('stateChange', function (id, state) {
 	    }, 600);
 		      }
 
-// Mein Script Ende        
-        
-        if (command == 'fx_mode'){
+	    if (command == 'fx_mode'){
             if (val >=0 && val <= 56){
 	    send('/' + val);}
             // Effekt Auto
 	    if (val >=57){
-	    setStates('mode', "tv");}	    
+	    adapter.setStates('mode', "tv");}	    
         }
+// Mein Script Ende
+	    
         if (command == 'color'){
             var c = val.split(",");
             if(state_current.ws2812fx_mode !== 0){
