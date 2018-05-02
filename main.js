@@ -156,9 +156,9 @@ adapter.on('stateChange', function (id, state) {
 	    if (command == 'fx_mode'){
             if (val >=0 && val <= 56){
 	    send('/' + val);}
-            // Effekt Auto
+            // Effekt TV
 	    if (val >=57){
-	    adapter.setStates('mode', "tv");}	    
+	    adapter.setStates('mode', "tv", "tv");}	    
         }
 // Mein Script Ende
 	    
