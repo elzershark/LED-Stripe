@@ -142,7 +142,7 @@ adapter.on('stateChange', function (id, state) {
 			b1 = q1 * 255;
 			}	
             }, 500);
-  }, 700);
+ 
             setTimeout(function (){
 
 
@@ -151,7 +151,9 @@ adapter.on('stateChange', function (id, state) {
             } else {
                 send('*' + rgbToHex(Math.round(r1), Math.round(g1), Math.round(b1)));
             }			
-	    }, 700);
+	    }, 1000);
+	    
+	     }, 700);
 		      }
 	    // Effekte
 	    if (command == 'fx_mode'){
