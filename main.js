@@ -92,21 +92,21 @@ adapter.on('stateChange', function (id, state) {
             h1 = state.val / 65535;
 	    }
             });
-            }, 400);  
+            }, 300);  
             setTimeout(function (){
             adapter.getState('saturation', function (err, state){
 		    if (!err){
             s1 = state.val / 254;
 		    }
             });
-            }, 400);            
+            }, 300);            
             setTimeout(function (){
             adapter.getState('dimmer', function (err, state){
 		    if (!err){
             v1 = state.val / 100;
 		    }
             });
-            }, 400);			
+            }, 300);			
             setTimeout(function (){
 				
 			i1 = Math.floor(h1 * 6);
@@ -141,7 +141,7 @@ adapter.on('stateChange', function (id, state) {
 			g1 = p1 * 255;
 			b1 = q1 * 255;
 			}	
-            }, 500);
+            }, 600);
  
             setTimeout(function (){
 
@@ -151,9 +151,9 @@ adapter.on('stateChange', function (id, state) {
             } else {
                 send('*' + rgbToHex(Math.round(r1), Math.round(g1), Math.round(b1)));
             }			
-	    }, 1000);
+	    }, 900);
 	    
-	     }, 700);
+	     }, 600);
 		      }
 	    // Effekte
 	    if (command == 'fx_mode'){
